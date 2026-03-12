@@ -1,0 +1,10 @@
+flutter_native_splash:
+  # ios & android below 12
+  color: "#ffffff"  ##====================================[REQUIRED]==========
+  image: assets/images/Splash_Screen_android12.png
+
+  
+  # android 12
+  android_12:
+   color: "#ffffff"  ##====================================[REQUIRED]==========
+   image: assets/images/Splash_Screen_android12.png
