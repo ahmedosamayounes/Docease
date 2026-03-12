@@ -31,9 +31,51 @@ dependencies:
   flutter:
     sdk: flutter
 
-  # The following adds the Cupertino Icons font to your application.
-  # Use with the CupertinoIcons class for iOS style icons.
-  cupertino_icons: ^1.0.8
+  cupertino_icons: ^1.0.8  # أيقونات iOS جاهزة للاستخدام
+
+  # ================================
+  # State Management: إدارة الحالة
+  # ================================
+  flutter_bloc: ^9.1.1  # لإدارة الحالة باستخدام BLoC pattern
+
+  # ================================
+  # Dependency Injection: تنظيم وربط الكلاسات مع بعض
+  # ================================
+  get_it: ^9.2.0  # تسهيل عملية إنشاء الكائنات وربطها ببعض
+
+  # ================================
+  # HTTP & API: التعامل مع السيرفر وطلبات الإنترنت
+  # ================================
+  dio: ^5.9.1  # إرسال واستقبال طلبات HTTP بسهولة
+  pretty_dio_logger: ^1.4.0  # لتسهيل رؤية طلبات واستجابات HTTP بشكل منسق
+  retrofit: ^4.9.2  # إنشاء واجهات API بسهولة باستخدام Dio
+  retrofit_generator: ^10.2.3  # توليد كود Retrofit تلقائياً (code generation)
+
+  # ================================
+  # JSON Serialization: تحويل البيانات من/إلى JSON
+  # ================================
+  json_annotation: ^4.11.0  # annotations لتحديد كيفية تحويل البيانات
+  json_serializable: ^6.13.0  # توليد الكود تلقائياً لتحويل JSON
+  freezed_annotation: ^3.1.0  # annotations لتوليد كود immutable classes
+  freezed: ^3.2.5  # توليد كود immutable وdata classes بسهولة
+
+  # ================================
+  # Localization & Internationalization: دعم لغات متعددة
+  # ================================
+  easy_localization: ^3.0.8  # تسهيل ترجمة التطبيق للغات مختلفة
+  intl: ^0.20.2  # التعامل مع التواريخ، الأرقام، والعملات حسب لغة المستخدم
+
+  # ================================
+  # UI Helpers: مسافات وتنظيم واجهة المستخدم
+  # ================================
+  flutter_svg: ^2.2.4 # لعرض ملفات SVG في التطبيق
+  flutter_screenutil: ^5.9.3  # لتسهيل تصميم واجهة المستخدم بشكل متجاوب على مختلف أحجام الشاشات
+  gap: ^3.0.1  # إضافة مسافات بين العناصر بسهولة
+
+  # ================================
+  # Splash Screen: شاشة البداية للتطبيق
+  # ================================
+  flutter_native_splash: ^2.4.7  # إنشاء شاشة بداية للتطبيق بشكل جميل
 
 dev_dependencies:
   flutter_test:
@@ -58,9 +100,9 @@ flutter:
   uses-material-design: true
 
   # To add assets to your application, add an assets section, like this:
-  # assets:
-  #   - images/a_dot_burr.jpeg
-  #   - images/a_dot_ham.jpeg
+  assets:
+   - assets/images/
+   - assets/svgs/
 
   # An image asset can refer to one or more resolution-specific "variants", see
   # https://flutter.dev/to/resolution-aware-images
