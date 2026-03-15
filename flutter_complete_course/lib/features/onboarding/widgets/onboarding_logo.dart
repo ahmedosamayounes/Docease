@@ -14,7 +14,7 @@ class OnboardingLogo extends StatelessWidget {
       children: [
         SvgPicture.asset('assets/svgs/logo.svg'),
         Gap(10.w),
-        Text('DocEase', style: TextStyles.font24Black700Wight),
+        Text('DocEase', style: TextStyles.font24BlackBold),
       ],
     );
   }
