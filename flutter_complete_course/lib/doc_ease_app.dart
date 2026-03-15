@@ -22,7 +22,7 @@ class DoceaseApp extends StatelessWidget {
           scaffoldBackgroundColor: Colors.white,
         ),
         onGenerateRoute: appRouter.generateRoute,
-        initialRoute: Routes.onboardingScreen,
+        initialRoute: Routes.loginScreen,
       ),
     );
   }
