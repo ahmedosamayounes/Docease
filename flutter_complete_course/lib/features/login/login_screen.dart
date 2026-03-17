@@ -1,22 +1,19 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_complete_course/core/Shared/app_text_button.dart';
 import 'package:flutter_complete_course/core/theming/styles.dart';
 import 'package:flutter_complete_course/core/Shared/app_text_formfield.dart';
+import 'package:flutter_complete_course/features/login/data/models/login_requst_body.dart';
+import 'package:flutter_complete_course/features/login/logic/cubit/login_cubit.dart';
 import 'package:flutter_complete_course/features/login/widgets/aleardy_have_account_text.dart';
+import 'package:flutter_complete_course/features/login/widgets/email_and_password_form.dart';
+import 'package:flutter_complete_course/features/login/widgets/login_bloc_listener.dart';
 import 'package:flutter_complete_course/features/login/widgets/terms_and_conditions_text.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:gap/gap.dart';
 
-class LoginScreen extends StatefulWidget {
+class LoginScreen extends StatelessWidget {
   const LoginScreen({super.key});
-
-  @override
-  State<LoginScreen> createState() => _LoginScreenState();
-}
-
-class _LoginScreenState extends State<LoginScreen> {
-  final fromKey = GlobalKey<FormState>();
-  bool isObscureText = true;
 
   @override
   Widget build(BuildContext context) {
@@ -39,53 +36,31 @@ class _LoginScreenState extends State<LoginScreen> {
                     style: TextStyles.font15GreyRegular,
                   ),
                   Gap(36.h),
-                  GestureDetector(
-                    onTap: () {
-                      FocusScope.of(context).unfocus();
-                    },
-                    child: Form(
-                      key: fromKey,
-                      child: Column(
-                        children: [
-                          AppTextFormField(hintText: "Email"),
-                          Gap(20.h),
-                          AppTextFormField(
-                            hintText: "Password",
-                            isObscureText: isObscureText,
-                            suffixIcon: GestureDetector(
-                              onTap: () {
-                                setState(() {
-                                  isObscureText = !isObscureText;
-                                });
-                              },
-                              child: Icon(
-                                isObscureText
-                                    ? Icons.visibility_off
-                                    : Icons.visibility,
-                              ),
-                            ),
-                          ),
-                          Gap(24.h),
-                          Align(
-                            alignment: AlignmentDirectional.centerEnd,
-                            child: Text(
-                              'Forgot Password?',
-                              style: TextStyles.font13PrimaryRegular,
-                            ),
-                          ),
-                          Gap(40.h),
-                          AppTextButton(
-                            buttonText: 'Login',
-                            textStyle: TextStyles.font16WhiteSemiBold,
-                            onPressed: () {},
-                          ),
-                          Gap(16.h),
-                          const TermsAndConditionsText(),
-                          Gap(60.h),
-                          const AleardyHaveAccountText(),
-                        ],
+                  Column(
+                    children: [
+                      const EmailAndPasswordForm(),
+                      Gap(24.h),
+                      Align(
+                        alignment: AlignmentDirectional.centerEnd,
+                        child: Text(
+                          'Forgot Password?',
+                          style: TextStyles.font13PrimaryRegular,
+                        ),
                       ),
-                    ),
+                      Gap(40.h),
+                      AppTextButton(
+                        buttonText: 'Login',
+                        textStyle: TextStyles.font16WhiteSemiBold,
+                        onPressed: () {
+                          validateThenDoLogin(context);
+                        },
+                      ),
+                      Gap(16.h),
+                      const TermsAndConditionsText(),
+                      Gap(60.h),
+                      const AleardyHaveAccountText(),
+                      const LoginBlocListener()
+                    ],
                   ),
                 ],
               ),
@@ -95,4 +70,17 @@ class _LoginScreenState extends State<LoginScreen> {
       ),
     );
   }
+
+  void validateThenDoLogin(BuildContext context) {
+    if (context.read<LoginCubit>().formKey.currentState!.validate()) {
+      context.read<LoginCubit>().emitLoginStates(
+        LoginRequstBody(
+          email: context.read<LoginCubit>().emailController.text,
+          password: context.read<LoginCubit>().passwordController.text,
+        ),
+      );
+    }
+  }
+  
 }
+
