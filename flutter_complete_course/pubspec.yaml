@@ -50,6 +50,7 @@ dependencies:
   pretty_dio_logger: ^1.4.0  # لتسهيل رؤية طلبات واستجابات HTTP بشكل منسق
   retrofit: ^4.9.2  # إنشاء واجهات API بسهولة باستخدام Dio
   retrofit_generator: ^10.2.3  # توليد كود Retrofit تلقائياً (code generation)
+  build_runner: ^2.4.6  # لتشغيل عمليات توليد الكود (code generation) مثل Retrofit و JSON Serializable
 
   # ================================
   # JSON Serialization: تحويل البيانات من/إلى JSON
