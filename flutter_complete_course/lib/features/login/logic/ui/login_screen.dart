@@ -5,10 +5,11 @@ import 'package:flutter_complete_course/core/theming/styles.dart';
 import 'package:flutter_complete_course/core/Shared/app_text_formfield.dart';
 import 'package:flutter_complete_course/features/login/data/models/login_requst_body.dart';
 import 'package:flutter_complete_course/features/login/logic/cubit/login_cubit.dart';
-import 'package:flutter_complete_course/features/login/widgets/aleardy_have_account_text.dart';
-import 'package:flutter_complete_course/features/login/widgets/email_and_password_form.dart';
-import 'package:flutter_complete_course/features/login/widgets/login_bloc_listener.dart';
-import 'package:flutter_complete_course/features/login/widgets/terms_and_conditions_text.dart';
+import 'package:flutter_complete_course/features/sign_up/ui/widgets/aleardy_have_account_text.dart';
+import 'package:flutter_complete_course/features/login/logic/ui/widgets/dont_have_account_text.dart';
+import 'package:flutter_complete_course/features/login/logic/ui/widgets/email_and_password_form.dart';
+import 'package:flutter_complete_course/features/login/logic/ui/widgets/login_bloc_listener.dart';
+import 'package:flutter_complete_course/features/login/logic/ui/widgets/terms_and_conditions_text.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:gap/gap.dart';
 
@@ -58,8 +59,8 @@ class LoginScreen extends StatelessWidget {
                       Gap(16.h),
                       const TermsAndConditionsText(),
                       Gap(60.h),
-                      const AleardyHaveAccountText(),
-                      const LoginBlocListener()
+                      const DontHaveAccountText(),
+                      const LoginBlocListener(),
                     ],
                   ),
                 ],
@@ -73,14 +74,7 @@ class LoginScreen extends StatelessWidget {
 
   void validateThenDoLogin(BuildContext context) {
     if (context.read<LoginCubit>().formKey.currentState!.validate()) {
-      context.read<LoginCubit>().emitLoginStates(
-        LoginRequstBody(
-          email: context.read<LoginCubit>().emailController.text,
-          password: context.read<LoginCubit>().passwordController.text,
-        ),
-      );
+      context.read<LoginCubit>().emitLoginStates();
     }
   }
-  
 }
-

@@ -3,7 +3,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_complete_course/core/Shared/app_text_formfield.dart';
 import 'package:flutter_complete_course/core/helpers/app_regex.dart';
 import 'package:flutter_complete_course/features/login/logic/cubit/login_cubit.dart';
-import 'package:flutter_complete_course/features/login/widgets/paswword_validations.dart';
+import 'package:flutter_complete_course/features/login/logic/ui/widgets/paswword_validations.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:gap/gap.dart';
 
