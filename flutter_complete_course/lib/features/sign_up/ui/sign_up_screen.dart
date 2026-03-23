@@ -3,7 +3,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_complete_course/core/Shared/app_text_button.dart';
 import 'package:flutter_complete_course/core/theming/styles.dart';
 import 'package:flutter_complete_course/features/sign_up/ui/widgets/aleardy_have_account_text.dart';
-import 'package:flutter_complete_course/features/login/logic/ui/widgets/terms_and_conditions_text.dart';
+import 'package:flutter_complete_course/features/login/ui/widgets/terms_and_conditions_text.dart';
 import 'package:flutter_complete_course/features/sign_up/logic/cubit/sign_up_cubit.dart';
 import 'package:flutter_complete_course/features/sign_up/ui/widgets/sign_up_bloc_listener.dart';
 import 'package:flutter_complete_course/features/sign_up/ui/widgets/sign_up_form.dart';

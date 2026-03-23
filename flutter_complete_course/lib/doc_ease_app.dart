@@ -11,10 +11,12 @@ class DoceaseApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return ScreenUtilInit(
+      
       designSize: const Size(375, 812),
       minTextAdapt: true,
       splitScreenMode: true,
       child: MaterialApp(
+        
         debugShowCheckedModeBanner: false,
         title: 'DoceaseApp',
         theme: ThemeData(
@@ -22,7 +24,7 @@ class DoceaseApp extends StatelessWidget {
           scaffoldBackgroundColor: Colors.white,
         ),
         onGenerateRoute: appRouter.generateRoute,
-        initialRoute: Routes.loginScreen,
+        initialRoute: Routes.homeScreen,
       ),
     );
   }

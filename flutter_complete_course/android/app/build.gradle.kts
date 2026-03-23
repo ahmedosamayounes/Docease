@@ -40,7 +40,7 @@ android {
                 type = "string",
                 name = "app_name",
                 value = "DocEase Development")
-            applicationIdSuffix = ".dev"
+            // applicationIdSuffix = ".dev"
         }
 
         create("production") {
