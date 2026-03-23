@@ -77,6 +77,7 @@ dependencies:
   # Splash Screen: شاشة البداية للتطبيق
   # ================================
   flutter_native_splash: ^2.4.7  # إنشاء شاشة بداية للتطبيق بشكل جميل
+  firebase_core: ^4.5.0
 
 dev_dependencies:
   flutter_test:

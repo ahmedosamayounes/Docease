@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "660014827167",
+    "project_id": "doceaseapp",
+    "storage_bucket": "doceaseapp.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:660014827167:android:3cb37374db0af90e3ac4aa",
+        "android_client_info": {
+          "package_name": "com.example.flutter_complete_course"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDdduG8NJrtnOVcb24q0NarOCZoKxrdx-0"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
