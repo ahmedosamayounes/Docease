@@ -1,7 +1,13 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_complete_course/core/theming/app_colors.dart';
+import 'package:flutter_complete_course/core/theming/styles.dart';
 
 import 'package:flutter_complete_course/features/home/ui/widgets/doctors_blue_container.dart';
+import 'package:flutter_complete_course/features/home/ui/widgets/doctors_list.dart';
+import 'package:flutter_complete_course/features/home/ui/widgets/doctors_speciality_see_all.dart';
 import 'package:flutter_complete_course/features/home/ui/widgets/home_top_bar.dart';
+import 'package:flutter_complete_course/features/home/ui/widgets/specializations_list.dart';
+import 'package:flutter_svg/flutter_svg.dart';
 
 import 'package:gap/gap.dart';
 
@@ -14,13 +20,18 @@ class HomeScreen extends StatelessWidget {
       body: SafeArea(
         child: Padding(
           padding: const EdgeInsets.symmetric(horizontal: 18),
-          
+
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
               Gap(30),
               HomeTopBar(),
               DoctorsBlueContainer(),
+              Gap(18),
+              DoctorsSpecialitySeeAll(),
+              Gap(15),
+              SpecializationsList(),
+              DoctorsList(),
             ],
           ),
         ),
