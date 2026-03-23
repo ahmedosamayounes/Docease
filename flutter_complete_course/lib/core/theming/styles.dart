@@ -9,6 +9,20 @@ class TextStyles {
     fontWeight: FontWeightHelper.bold,
     color: Colors.black,
   );
+    static TextStyle font18darkBluebold = TextStyle(
+    fontSize: 18.sp,
+    fontWeight: FontWeightHelper.bold,
+    color: AppColors.darkBlue,
+  );
+
+  
+    static TextStyle font13GrayNormalReqular = TextStyle(
+    fontSize: 13.sp,
+    fontWeight: FontWeightHelper.regular,
+    color: AppColors.grayNormal,
+  );
+  
+
   static TextStyle font32PrimaryBold = TextStyle(
     fontSize: 32.sp,
     fontWeight: FontWeightHelper.bold,
