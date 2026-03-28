@@ -1,10 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_complete_course/core/theming/styles.dart';
+import 'package:flutter_complete_course/features/home/data/models/specialization_response_model.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:gap/gap.dart';
 
 class DoctorsList extends StatelessWidget {
-  const DoctorsList({super.key});
+  final List<Doctors?>? doctors;
+  const DoctorsList({super.key, this.doctors});
 
   @override
   Widget build(BuildContext context) {
@@ -13,7 +15,7 @@ class DoctorsList extends StatelessWidget {
         shrinkWrap: false,
         padding: EdgeInsets.zero, // أهم خطوة: إزالة أي padding
 
-        itemCount: 10,
+        itemCount: doctors?.length,
         itemBuilder: (context, index) {
           return Row(
             children: [
@@ -31,26 +33,19 @@ class DoctorsList extends StatelessWidget {
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
                     Text(
-                      'Dr. Randy Wigham',
+                      doctors?[index]?.name ?? 'doctor name',
                       style: TextStyles.font16DarkBluebold,
                     ),
                     Gap(8),
                     Text(
-                      'RSUD Gatot Subroto',
+                      '${doctors?[index]?.degree ?? 'degree'} | ${doctors?[index]?.phone ?? 'phone number'}',
                       style: TextStyles.font13GrayNormalReqular,
                     ),
                     Gap(8),
-                    Row(
-                      children: [
-                        SvgPicture.asset('assets/svgs/magic-star.svg'),
-                        Gap(5),
-                        Text('4.8', style: TextStyles.font13GrayNormalReqular),
-                        Gap(5),
-                        Text(
-                          '(4,279 reviews)',
-                          style: TextStyles.font13GrayNormalReqular,
-                        ),
-                      ],
+                    //email Text
+                    Text(
+                      doctors?[index]?.email ?? 'email',
+                      style: TextStyles.font13GrayNormalReqular,
                     ),
                   ],
                 ),

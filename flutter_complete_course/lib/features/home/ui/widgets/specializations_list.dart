@@ -1,16 +1,18 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_complete_course/core/theming/app_colors.dart';
+import 'package:flutter_complete_course/features/home/data/models/specialization_response_model.dart';
 import 'package:gap/gap.dart';
 
 class SpecializationsList extends StatelessWidget {
-  const SpecializationsList({super.key});
+  final List<SpecializationsData?> specializationsData;
+  const SpecializationsList({super.key, required this.specializationsData});
 
   @override
   Widget build(BuildContext context) {
     return SizedBox(
       height: 120,
       child: ListView.builder(
-        itemCount: 8,
+        itemCount: specializationsData.length,
         padding: EdgeInsets.zero, // أهم خطوة: إزالة أي padding
 
         scrollDirection: Axis.horizontal,
@@ -28,7 +30,7 @@ class SpecializationsList extends StatelessWidget {
                   ),
                 ),
                 Gap(12),
-                Text('General'),
+                Text(specializationsData[index]?.name ?? 'specialization'),
               ],
             ),
           );
