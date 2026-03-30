@@ -6,16 +6,9 @@ import 'package:flutter_complete_course/features/home/logic/cubit/home_state.dar
 import 'package:flutter_complete_course/features/home/ui/widgets/doctors_list.dart';
 import 'package:flutter_complete_course/features/home/ui/widgets/specializations_list.dart';
 
-class SpecializationsAndDoctorsBlocBuilder extends StatefulWidget {
+class SpecializationsAndDoctorsBlocBuilder extends StatelessWidget {
   const SpecializationsAndDoctorsBlocBuilder({super.key});
 
-  @override
-  State<SpecializationsAndDoctorsBlocBuilder> createState() =>
-      _SpecializationsAndDoctorsBlocBuilderState();
-}
-
-class _SpecializationsAndDoctorsBlocBuilderState
-    extends State<SpecializationsAndDoctorsBlocBuilder> {
   @override
   Widget build(BuildContext context) {
     return BlocBuilder<HomeCubit, HomeState>(

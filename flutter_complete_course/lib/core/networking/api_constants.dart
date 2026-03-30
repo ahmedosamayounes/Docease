@@ -3,6 +3,7 @@ class ApiConstants {
   static const String loginEndpoint = 'auth/login';
   static const String signUpEndpoint = 'auth/register';
   static const String specializationEndpoint = 'specialization/index';
+  
 
 }
 class ApiErrors {
