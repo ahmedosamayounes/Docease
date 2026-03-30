@@ -28,60 +28,31 @@ environment:
 # the latest version available on pub.dev. To see which dependencies have newer
 # versions available, run `flutter pub outdated`.
 dependencies:
+  build_runner: ^2.4.6
+  cupertino_icons: ^1.0.8
+  dio: ^5.9.1
+  easy_localization: ^3.0.8
+  firebase_core: ^4.5.0
   flutter:
     sdk: flutter
-
-  cupertino_icons: ^1.0.8  # أيقونات iOS جاهزة للاستخدام
-
-  # ================================
-  # State Management: إدارة الحالة
-  # ================================
-  flutter_bloc: ^9.1.1  # لإدارة الحالة باستخدام BLoC pattern
-
-  # ================================
-  # Dependency Injection: تنظيم وربط الكلاسات مع بعض
-  # ================================
-  get_it: ^9.2.0  # تسهيل عملية إنشاء الكائنات وربطها ببعض
-
-  # ================================
-  # HTTP & API: التعامل مع السيرفر وطلبات الإنترنت
-  # ================================
-  dio: ^5.9.1  # إرسال واستقبال طلبات HTTP بسهولة
-  pretty_dio_logger: ^1.4.0  # لتسهيل رؤية طلبات واستجابات HTTP بشكل منسق
-  retrofit: ^4.9.2  # إنشاء واجهات API بسهولة باستخدام Dio
-  retrofit_generator: ^10.2.3  # توليد كود Retrofit تلقائياً (code generation)
-  build_runner: ^2.4.6  # لتشغيل عمليات توليد الكود (code generation) مثل Retrofit و JSON Serializable
-
-  # ================================
-  # JSON Serialization: تحويل البيانات من/إلى JSON
-  # ================================
-  json_annotation: ^4.11.0  # annotations لتحديد كيفية تحويل البيانات
-  json_serializable: ^6.13.0  # توليد الكود تلقائياً لتحويل JSON
-  freezed_annotation: ^3.1.0  # annotations لتوليد كود immutable classes
-  freezed: ^3.2.5  # توليد كود immutable وdata classes بسهولة
-
-  # ================================
-  # Localization & Internationalization: دعم لغات متعددة
-  # ================================
-  easy_localization: ^3.0.8  # تسهيل ترجمة التطبيق للغات مختلفة
-  intl: ^0.20.2  # التعامل مع التواريخ، الأرقام، والعملات حسب لغة المستخدم
-
-  # ================================
-  # UI Helpers: مسافات وتنظيم واجهة المستخدم
-  # ================================
-  flutter_svg: ^2.2.4 # لعرض ملفات SVG في التطبيق
-  flutter_screenutil: ^5.9.3  # لتسهيل تصميم واجهة المستخدم بشكل متجاوب على مختلف أحجام الشاشات
-  gap: ^3.0.1  # إضافة مسافات بين العناصر بسهولة
-
-  # ================================
-  # Splash Screen: شاشة البداية للتطبيق
-  # ================================
-  flutter_native_splash: ^2.4.7  # إنشاء شاشة بداية للتطبيق بشكل جميل
-  firebase_core: ^4.5.0
+  flutter_bloc: ^9.1.1
+  flutter_native_splash: ^2.4.7
+  flutter_screenutil: ^5.9.3
+  flutter_secure_storage: ^10.0.0
+  flutter_svg: ^2.2.4
+  freezed: ^3.2.5
+  freezed_annotation: ^3.1.0
+  gap: ^3.0.1
+  get_it: ^9.2.0
+  intl: ^0.20.2
+  json_annotation: ^4.11.0
+  json_serializable: ^6.13.0
+  pretty_dio_logger: ^1.4.0
+  retrofit: ^4.9.2
+  retrofit_generator: ^10.2.3
+  shared_preferences: ^2.5.5
 
 dev_dependencies:
-  flutter_test:
-    sdk: flutter
 
   # The "flutter_lints" package below contains a set of recommended lints to
   # encourage good coding practices. The lint set provided by the package is
@@ -89,10 +60,11 @@ dev_dependencies:
   # package. See that file for information about deactivating specific lint
   # rules and activating additional ones.
   flutter_lints: ^6.0.0
+  flutter_test:
+    sdk: flutter
 
 # For information on the generic Dart part of this file, see the
 # following page: https://dart.dev/tools/pub/pubspec
-
 # The following section is specific to Flutter packages.
 flutter:
 
@@ -103,15 +75,12 @@ flutter:
 
   # To add assets to your application, add an assets section, like this:
   assets:
-   - assets/images/
-   - assets/svgs/
-
+    - assets/images/
+    - assets/svgs/
   # An image asset can refer to one or more resolution-specific "variants", see
   # https://flutter.dev/to/resolution-aware-images
-
   # For details regarding adding assets from package dependencies, see
   # https://flutter.dev/to/asset-from-package
-
   # To add custom fonts to your application, add a fonts section here,
   # in this "flutter" section. Each entry in this list should have a
   # "family" key with the font family name, and a "fonts" key with a

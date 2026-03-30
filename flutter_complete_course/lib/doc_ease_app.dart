@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_complete_course/core/helpers/constants.dart';
 import 'package:flutter_complete_course/core/routing/app_router.dart';
 import 'package:flutter_complete_course/core/routing/routes.dart';
 import 'package:flutter_complete_course/core/theming/app_colors.dart';
@@ -11,12 +12,10 @@ class DoceaseApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return ScreenUtilInit(
-      
       designSize: const Size(375, 812),
       minTextAdapt: true,
       splitScreenMode: true,
       child: MaterialApp(
-        
         debugShowCheckedModeBanner: false,
         title: 'DoceaseApp',
         theme: ThemeData(
@@ -24,7 +23,7 @@ class DoceaseApp extends StatelessWidget {
           scaffoldBackgroundColor: Colors.white,
         ),
         onGenerateRoute: appRouter.generateRoute,
-        initialRoute: Routes.homeScreen,
+        initialRoute: isLoggedInUser ? Routes.homeScreen : Routes.loginScreen,
       ),
     );
   }
