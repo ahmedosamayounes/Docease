@@ -1,7 +1,8 @@
 import 'package:dio/dio.dart';
 import 'package:flutter_complete_course/core/helpers/constants.dart';
-import 'package:flutter_complete_course/core/helpers/shared_pref_helper.dart';
 import 'package:pretty_dio_logger/pretty_dio_logger.dart';
+
+import '../helpers/shared_pref_helper.dart';
 
 class DioFactory {
   /// private constructor as I don't want to allow creating an instance of this class
@@ -17,8 +18,8 @@ class DioFactory {
       dio!
         ..options.connectTimeout = timeOut
         ..options.receiveTimeout = timeOut;
-      addDioInterceptor();
       addDioHeaders();
+      addDioInterceptor();
       return dio!;
     } else {
       return dio!;
@@ -34,7 +35,9 @@ class DioFactory {
   }
 
   static void setTokenIntoHeaderAfterLogin(String token) {
-    dio?.options.headers = {'Authorization': 'Bearer $token'};
+    dio?.options.headers = {
+      'Authorization': 'Bearer $token',
+    };
   }
 
   static void addDioInterceptor() {

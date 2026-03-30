@@ -3,6 +3,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_complete_course/core/theming/app_colors.dart';
 import 'package:flutter_complete_course/features/home/logic/cubit/home_cubit.dart';
 import 'package:flutter_complete_course/features/home/logic/cubit/home_state.dart';
+import 'package:flutter_complete_course/features/home/ui/widgets/doctors_blocbuilder.dart';
 
 import 'package:flutter_complete_course/features/home/ui/widgets/doctors_blue_container.dart';
 import 'package:flutter_complete_course/features/home/ui/widgets/doctors_list.dart';
@@ -32,7 +33,8 @@ class HomeScreen extends StatelessWidget {
               Gap(18),
               DoctorsSpecialitySeeAll(),
               Gap(15),
-              SpecializationsAndDoctorsBlocBuilder(),
+              SpecializationsBlocBuilder(),
+              const DoctorsBlocBuilder(),
             ],
           ),
         ),

@@ -3,11 +3,13 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_complete_course/core/theming/app_colors.dart';
 import 'package:flutter_complete_course/features/home/logic/cubit/home_cubit.dart';
 import 'package:flutter_complete_course/features/home/logic/cubit/home_state.dart';
-import 'package:flutter_complete_course/features/home/ui/widgets/doctors_list.dart';
+import 'package:flutter_complete_course/features/home/ui/widgets/doctors_shimmer_loading.dart';
+import 'package:flutter_complete_course/features/home/ui/widgets/speciality_shimmer_loading.dart';
 import 'package:flutter_complete_course/features/home/ui/widgets/specializations_list.dart';
+import 'package:gap/gap.dart';
 
-class SpecializationsAndDoctorsBlocBuilder extends StatelessWidget {
-  const SpecializationsAndDoctorsBlocBuilder({super.key});
+class SpecializationsBlocBuilder extends StatelessWidget {
+  const SpecializationsBlocBuilder({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -20,25 +22,12 @@ class SpecializationsAndDoctorsBlocBuilder extends StatelessWidget {
       builder: (context, state) {
         return state.maybeWhen(
           specializationsLoading: () {
-            return SizedBox(
-              height: 100,
-              child: const Center(
-                child: CircularProgressIndicator(color: AppColors.primaryColor),
-              ),
-            );
+            return setupLoading();
           },
-          specializationsSuccess: (specializationResponseModel) {
-            var specializationsList =
-                specializationResponseModel.specializationDataList;
-            return Expanded(
-              child: Column(
-                children: [
-                  SpecializationsList(
-                    specializationsData: specializationsList ?? [],
-                  ),
-                  DoctorsList(doctors: specializationsList?[0]?.doctorsList),
-                ],
-              ),
+          specializationsSuccess: (specializationsData) {
+            var specializationsList =   specializationsData;
+            return SpecializationsList(
+              specializationsData: specializationsList ?? [],
             );
           },
           specializationsError: (errorHandler) {
@@ -51,4 +40,17 @@ class SpecializationsAndDoctorsBlocBuilder extends StatelessWidget {
       },
     );
   }
+    /// shimmer loading for specializations and doctors
+  Widget setupLoading() {
+    return Expanded(
+      child: Column(
+        children: [
+          const SpecialityShimmerLoading(),
+          Gap(8),
+          const DoctorsShimmerLoading(),
+        ],
+      ),
+    );
+  }
+
 }
