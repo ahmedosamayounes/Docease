@@ -1,5 +1,3 @@
-// ignore_for_file: strict_top_level_inference, type_literal_in_constant_pattern
-
 import 'package:flutter/material.dart';
 import 'package:flutter_secure_storage/flutter_secure_storage.dart';
 import 'package:shared_preferences/shared_preferences.dart';
@@ -76,8 +74,7 @@ class SharedPrefHelper {
   static setSecuredString(String key, String value) async {
     const flutterSecureStorage = FlutterSecureStorage();
     debugPrint(
-      "FlutterSecureStorage : setSecuredString with key : $key and value : $value",
-    );
+        "FlutterSecureStorage : setSecuredString with key : $key and value : $value");
     await flutterSecureStorage.write(key: key, value: value);
   }
 

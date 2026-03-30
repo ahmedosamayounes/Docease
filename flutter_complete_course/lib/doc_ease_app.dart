@@ -22,8 +22,8 @@ class DoceaseApp extends StatelessWidget {
           primaryColor: AppColors.primaryColor,
           scaffoldBackgroundColor: Colors.white,
         ),
-        onGenerateRoute: appRouter.generateRoute,
         initialRoute: isLoggedInUser ? Routes.homeScreen : Routes.loginScreen,
+        onGenerateRoute: appRouter.generateRoute,
       ),
     );
   }
