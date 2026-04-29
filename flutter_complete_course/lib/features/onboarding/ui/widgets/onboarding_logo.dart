@@ -12,7 +12,7 @@ class OnboardingLogo extends StatelessWidget {
     return Row(
       mainAxisAlignment: MainAxisAlignment.center,
       children: [
-        SvgPicture.asset('assets/svgs/logo.svg'),
+        SvgPicture.asset('assets/svgs/Group 93.svg' , height: 50.h, width: 50.w),
         Gap(10.w),
         Text('DocEase', style: TextStyles.font24BlackBold),
       ],

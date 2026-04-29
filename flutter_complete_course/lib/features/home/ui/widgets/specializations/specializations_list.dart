@@ -20,7 +20,7 @@ class _SpecializationsListState extends State<SpecializationsList> {
   @override
   Widget build(BuildContext context) {
     return SizedBox(
-      height: 120,
+      height: 120.h,
       child: ListView.builder(
         itemCount: widget.specializationsData.length,
         padding: EdgeInsets.zero, // أهم خطوة: إزالة أي padding
@@ -38,31 +38,23 @@ class _SpecializationsListState extends State<SpecializationsList> {
               );
             },
             child: Padding(
-              padding: const EdgeInsets.symmetric(horizontal: 20),
+              padding:  EdgeInsets.symmetric(horizontal: 20.h),
               child: Column(
                 children: [
                   selectedSpecializationIndex == index
-                      ? Container(
-                          decoration: BoxDecoration(
-                            border: Border.all(color: AppColors.darkBlue),
-                            shape: BoxShape.circle,
-                          ),
-                          child: CircleAvatar(
-                            radius: 30.0,
-                            backgroundColor: AppColors.lightWhite,
-                            child: Image.asset(
-                              'assets/images/icons8-medical-doctor-100.png',
-                            ),
-                          ),
-                        )
+                      ? CircleAvatar(
+                        radius: 35.0,
+                        backgroundColor: AppColors.lightWhite,
+                        child: Image.asset(
+                          'assets/svgs/image 247.png',
+                        ),
+                      )
                       : CircleAvatar(
                           radius: 30.0,
                           backgroundColor: AppColors.lightWhite,
                           child: Image.asset(
-                            'assets/images/icons8-medical-doctor-100.png',
-                            width: 45,
-                            height: 45,
-                          ),
+                              'assets/svgs/image 247.png',
+                            ),
                         ),
                   Gap(12),
                   Text(

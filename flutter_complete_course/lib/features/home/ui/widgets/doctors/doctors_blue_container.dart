@@ -14,17 +14,18 @@ class DoctorsBlueContainer extends StatelessWidget {
         alignment: Alignment.bottomCenter,
         children: [
           Container(
-            height: 165.h,
+            height: 180.h,
             width: double.infinity,
             padding: EdgeInsets.symmetric(horizontal: 16.w, vertical: 16.h),
             decoration: BoxDecoration(
               image: const DecorationImage(
                 image: AssetImage(
-                  'assets/images/Background_Contienar_home.png',
+                  'assets/svgs/Mask group.png' ,
                 ),
                 fit: BoxFit.cover,
+                
               ),
-              borderRadius: BorderRadius.circular(24.0),
+              borderRadius: BorderRadius.circular(24.0.h),
             ),
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
@@ -34,14 +35,14 @@ class DoctorsBlueContainer extends StatelessWidget {
                   textAlign: TextAlign.start,
                   style: TextStyles.font18WhiteMedium.copyWith(height: 1.5),
                 ),
-                Gap(16),
+                Gap(10.h),
                 Expanded(
                   child: ElevatedButton(
                     onPressed: () {},
                     style: ElevatedButton.styleFrom(
                       backgroundColor: Colors.white,
                       shape: RoundedRectangleBorder(
-                        borderRadius: BorderRadius.circular(48.0),
+                        borderRadius: BorderRadius.circular(48.0.h),
                       ),
                     ),
                     child: Text(
@@ -56,7 +57,7 @@ class DoctorsBlueContainer extends StatelessWidget {
           Positioned(
             right: 8.w,
             top: 0,
-            child: Image.asset('assets/images/HomeWoman.png', height: 200.h),
+            child: Image.asset('assets/images/image 44.png', height: 200.h),
           ),
         ],
       ),

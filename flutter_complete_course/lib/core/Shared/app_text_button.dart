@@ -28,10 +28,12 @@ class AppTextButton extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return TextButton(
+      
       style: ButtonStyle(
+      
         shape: MaterialStateProperty.all<RoundedRectangleBorder>(
           RoundedRectangleBorder(
-            borderRadius: BorderRadius.circular(borderRadius ?? 16.0),
+            borderRadius: BorderRadius.circular(borderRadius ?? 16.0.r),
           ),
         ),
         backgroundColor: WidgetStatePropertyAll(
@@ -44,11 +46,12 @@ class AppTextButton extends StatelessWidget {
           ),
         ),
         fixedSize: WidgetStatePropertyAll(
-          Size(buttonWidth?.w ?? double.maxFinite, buttonHeight ?? 50.h),
+          Size(buttonWidth?.w ?? double.maxFinite, buttonHeight ?? 55.h),
           // to make the button take the full width of its parent by default
         ),
       ),
       onPressed: onPressed,
+      
       child: Text(buttonText, style: textStyle),
     );
   }

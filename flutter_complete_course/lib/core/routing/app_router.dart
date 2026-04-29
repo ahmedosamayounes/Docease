@@ -2,6 +2,9 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_complete_course/core/di/depnedency_injaction.dart';
 import 'package:flutter_complete_course/core/routing/routes.dart';
+import 'package:flutter_complete_course/features/booking/logic/cubit/appointment_cubit.dart';
+import 'package:flutter_complete_course/features/booking/ui/booking_screen.dart';
+import 'package:flutter_complete_course/features/home/data/models/specialization_response_model.dart';
 import 'package:flutter_complete_course/features/home/logic/cubit/home_cubit.dart';
 import 'package:flutter_complete_course/features/home/ui/home_screen.dart';
 import 'package:flutter_complete_course/features/login/logic/cubit/login_cubit.dart';
@@ -36,6 +39,18 @@ class AppRouter {
           builder: (_) => BlocProvider(
             create: (context) => getIt<SignUpCubit>(),
             child: const SignupScreen(),
+          ),
+        );
+
+        case Routes.bookingScreen:
+        final doctor = settings.arguments as Doctors;
+        
+        return MaterialPageRoute(
+          builder: (_) => BlocProvider(
+            
+            create: (context) => getIt<AppointmentCubit>(),
+            child:  BookingScreen(doctorModel: doctor),
+            
           ),
         );
 

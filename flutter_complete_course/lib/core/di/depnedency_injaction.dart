@@ -1,6 +1,9 @@
 import 'package:dio/dio.dart';
 import 'package:flutter_complete_course/core/networking/api_service.dart';
 import 'package:flutter_complete_course/core/networking/dio_factory.dart';
+import 'package:flutter_complete_course/features/booking/data/apis/booking_api.dart';
+import 'package:flutter_complete_course/features/booking/data/repo/appointment_repo.dart';
+import 'package:flutter_complete_course/features/booking/logic/cubit/appointment_cubit.dart';
 import 'package:flutter_complete_course/features/home/data/apis/home_api_service.dart';
 import 'package:flutter_complete_course/features/home/data/repo/home_repo.dart';
 import 'package:flutter_complete_course/features/home/logic/cubit/home_cubit.dart';
@@ -31,4 +34,9 @@ Future<void> setupGetIt() async {
   // home
   getIt.registerLazySingleton<HomeApiService>(() => HomeApiService(dio));
   getIt.registerLazySingleton<HomeRepo>(() => HomeRepo(getIt()));
+
+  // booking
+  getIt.registerLazySingleton<BookingApi>(() => BookingApi(dio));
+  getIt.registerLazySingleton<AppointmentRepo>(() => AppointmentRepo(getIt()));
+  getIt.registerFactory<AppointmentCubit>(() => AppointmentCubit(getIt()));
 }

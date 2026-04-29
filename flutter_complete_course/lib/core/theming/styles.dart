@@ -96,6 +96,7 @@ class TextStyles {
     fontWeight: FontWeightHelper.bold,
     color: AppColors.darkBlue,
   );
+ 
 
 
   static TextStyle font13DarkBlueRegular = TextStyle(

@@ -3,9 +3,9 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_complete_course/core/theming/app_colors.dart';
 import 'package:flutter_complete_course/features/home/logic/cubit/home_cubit.dart';
 import 'package:flutter_complete_course/features/home/logic/cubit/home_state.dart';
-import 'package:flutter_complete_course/features/home/ui/widgets/doctors_shimmer_loading.dart';
-import 'package:flutter_complete_course/features/home/ui/widgets/speciality_shimmer_loading.dart';
-import 'package:flutter_complete_course/features/home/ui/widgets/specializations_list.dart';
+import 'package:flutter_complete_course/features/home/ui/widgets/doctors/doctors_shimmer_loading.dart';
+import 'package:flutter_complete_course/features/home/ui/widgets/specializations/speciality_shimmer_loading.dart';
+import 'package:flutter_complete_course/features/home/ui/widgets/specializations/specializations_list.dart';
 import 'package:gap/gap.dart';
 
 class SpecializationsBlocBuilder extends StatelessWidget {
