@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_complete_course/core/helpers/extensions.dart';
-import 'package:flutter_complete_course/core/routing/routes.dart';
-import 'package:flutter_complete_course/core/theming/app_colors.dart';
-import 'package:flutter_complete_course/core/theming/styles.dart';
+import '../../../../core/helpers/extensions.dart';
+import '../../../../core/routing/routes.dart';
+import '../../../../core/theming/app_colors.dart';
+import '../../../../core/theming/styles.dart';
 
 class OnboardingButton extends StatelessWidget {
   const OnboardingButton({super.key});
@@ -24,7 +24,7 @@ class OnboardingButton extends StatelessWidget {
           RoundedRectangleBorder(borderRadius: BorderRadius.circular(16)),
         ),
       ),
-      child: Text('Get Started', style: TextStyles.font16WhiteSemiBold),
+      child: Text('Explore Now', style: TextStyles.font16WhiteSemiBold),
     );
   }
 }

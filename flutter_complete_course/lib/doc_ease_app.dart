@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_complete_course/core/helpers/constants.dart';
-import 'package:flutter_complete_course/core/routing/app_router.dart';
-import 'package:flutter_complete_course/core/routing/routes.dart';
-import 'package:flutter_complete_course/core/theming/app_colors.dart';
+import 'core/helpers/constants.dart';
+import 'core/routing/app_router.dart';
+import 'core/routing/routes.dart';
+import 'core/theming/app_colors.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 class DoceaseApp extends StatelessWidget {

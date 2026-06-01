@@ -1,16 +1,15 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:flutter_complete_course/core/Shared/app_text_button.dart';
-import 'package:flutter_complete_course/core/theming/styles.dart';
-import 'package:flutter_complete_course/features/sign_up/ui/widgets/aleardy_have_account_text.dart';
-import 'package:flutter_complete_course/features/login/ui/widgets/terms_and_conditions_text.dart';
-import 'package:flutter_complete_course/features/sign_up/logic/cubit/sign_up_cubit.dart';
-import 'package:flutter_complete_course/features/sign_up/ui/widgets/sign_up_bloc_listener.dart';
-import 'package:flutter_complete_course/features/sign_up/ui/widgets/sign_up_form.dart';
+import '../../../core/Shared/app_text_button.dart';
+import '../../../core/theming/styles.dart';
+import 'widgets/aleardy_have_account_text.dart';
+import '../../login/ui/widgets/terms_and_conditions_text.dart';
+import '../logic/cubit/sign_up_cubit.dart';
+import 'widgets/sign_up_bloc_listener.dart';
+import 'widgets/sign_up_form.dart';
 
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:gap/gap.dart';
-
 
 class SignupScreen extends StatelessWidget {
   const SignupScreen({super.key});
@@ -25,13 +24,10 @@ class SignupScreen extends StatelessWidget {
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                Text(
-                  'Create Account',
-                  style: TextStyles.font24BlueBold,
-                ),
+                Text('Join Us Now', style: TextStyles.font24BlueBold),
                 Gap(8),
                 Text(
-                  'Sign up now and start exploring all that our app has to offer. We\'re excited to welcome you to our community!',
+                  'Create your profile now to connect with certified doctors, schedule your visits, and take control of your well-being.',
                   style: TextStyles.font14GrayRegular,
                 ),
                 Gap(36),
@@ -40,7 +36,7 @@ class SignupScreen extends StatelessWidget {
                     const SignupForm(),
                     Gap(40),
                     AppTextButton(
-                      buttonText: "Create Account",
+                      buttonText: "Sign Up",
                       textStyle: TextStyles.font16WhiteSemiBold,
                       onPressed: () {
                         validateThenDoSignup(context);
@@ -49,7 +45,7 @@ class SignupScreen extends StatelessWidget {
                     Gap(16),
                     const TermsAndConditionsText(),
                     Gap(30),
-                    const AleardyHaveAccountText(),
+                    const AlreadyHaveAccountText(),
                     const SignupBlocListener(),
                   ],
                 ),

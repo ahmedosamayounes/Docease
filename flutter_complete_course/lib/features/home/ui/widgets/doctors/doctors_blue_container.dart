@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_complete_course/core/theming/styles.dart';
+import '../../../../../core/theming/styles.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:gap/gap.dart';
 
@@ -31,7 +31,7 @@ class DoctorsBlueContainer extends StatelessWidget {
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
                 Text(
-                  'Book and\nschedule with\nnearest doctor',
+                  'Consult\nand connect with\nlocal experts',
                   textAlign: TextAlign.start,
                   style: TextStyles.font18WhiteMedium.copyWith(height: 1.5),
                 ),
@@ -46,7 +46,7 @@ class DoctorsBlueContainer extends StatelessWidget {
                       ),
                     ),
                     child: Text(
-                      'Find Nearby',
+                      'Explore',
                       style: TextStyles.font13PrimaryRegular,
                     ),
                   ),

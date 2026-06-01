@@ -1,5 +1,5 @@
-import 'package:flutter_complete_course/core/networking/api_error_handler.dart';
-import 'package:flutter_complete_course/features/home/data/models/specialization_response_model.dart';
+import '../../../../core/networking/api_error_handler.dart';
+import '../../data/models/specialization_response_model.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 
 part 'home_state.freezed.dart';

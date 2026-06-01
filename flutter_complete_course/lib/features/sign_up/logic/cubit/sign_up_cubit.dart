@@ -1,10 +1,8 @@
 import 'package:bloc/bloc.dart';
-import 'package:dio/dio.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_complete_course/core/networking/api_result.dart';
-import 'package:flutter_complete_course/features/sign_up/data/models/sgin_up_requst_body.dart';
-import 'package:flutter_complete_course/features/sign_up/data/models/sign_up_response.dart';
-import 'package:flutter_complete_course/features/sign_up/data/repo/sign_up_repo.dart';
+import '../../../../core/networking/api_result.dart';
+import '../../data/models/sgin_up_requst_body.dart';
+import '../../data/repo/sign_up_repo.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 
 part 'sign_up_state.dart';

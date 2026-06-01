@@ -1,10 +1,11 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_complete_course/core/theming/styles.dart';
-import 'package:flutter_complete_course/features/onboarding/ui/widgets/onboarding_button.dart';
-import 'package:flutter_complete_course/features/onboarding/ui/widgets/onboarding_content.dart';
-import 'package:flutter_complete_course/features/onboarding/ui/widgets/onboarding_logo.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:gap/gap.dart';
+
+import '../../../core/theming/styles.dart';
+import 'widgets/onboarding_button.dart';
+import 'widgets/onboarding_content.dart';
+import 'widgets/onboarding_logo.dart';
 
 class OnboardingScreen extends StatelessWidget {
   const OnboardingScreen({super.key});
@@ -26,7 +27,7 @@ class OnboardingScreen extends StatelessWidget {
                   child: Column(
                     children: [
                       Text(
-                        'Manage and schedule all of your medical appointments easily with Docdoc to get a new experience.',
+                        'Effortlessly organize your clinic visits and connect with top specialists through our seamless platform.',
                         style: TextStyles.font13GreyRegular,
                         textAlign: TextAlign.center,
                       ),

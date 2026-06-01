@@ -1,8 +1,8 @@
-import 'package:flutter_complete_course/core/networking/api_error_handler.dart';
-import 'package:flutter_complete_course/core/networking/api_result.dart';
-import 'package:flutter_complete_course/features/booking/data/apis/booking_api.dart';
-import 'package:flutter_complete_course/features/booking/data/models/appointment_request_model.dart';
-import 'package:flutter_complete_course/features/booking/data/models/appointment_respose_model.dart';
+import '../../../../core/networking/api_error_handler.dart';
+import '../../../../core/networking/api_result.dart';
+import '../apis/booking_api.dart';
+import '../models/appointment_request_model.dart';
+import '../models/appointment_respose_model.dart';
 
 class AppointmentRepo {
   final BookingApi bookingApi;

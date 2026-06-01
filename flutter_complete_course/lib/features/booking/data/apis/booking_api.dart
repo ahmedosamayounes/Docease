@@ -1,13 +1,10 @@
 import 'package:dio/dio.dart';
-import 'package:flutter_complete_course/core/networking/api_constants.dart';
-import 'package:flutter_complete_course/features/booking/data/models/appointment_request_model.dart';
-import 'package:flutter_complete_course/features/booking/data/models/appointment_respose_model.dart';
-import 'package:flutter_complete_course/features/login/data/models/login_requst_body.dart';
-import 'package:flutter_complete_course/features/login/data/models/login_response.dart';
-import 'package:flutter_complete_course/features/sign_up/data/models/sgin_up_requst_body.dart';
-import 'package:flutter_complete_course/features/sign_up/data/models/sign_up_response.dart';
 import 'package:retrofit/error_logger.dart';
 import 'package:retrofit/http.dart';
+
+import '../../../../core/networking/api_constants.dart';
+import '../models/appointment_request_model.dart';
+import '../models/appointment_respose_model.dart';
 
 part 'booking_api.g.dart';
 

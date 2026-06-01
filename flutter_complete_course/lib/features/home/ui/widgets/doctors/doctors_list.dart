@@ -1,12 +1,11 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_complete_course/core/helpers/extensions.dart';
-import 'package:flutter_complete_course/core/routing/routes.dart';
-import 'package:flutter_complete_course/core/theming/styles.dart';
-import 'package:flutter_complete_course/features/booking/ui/booking_screen.dart';
-import 'package:flutter_complete_course/features/home/data/models/specialization_response_model.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:flutter_svg/svg.dart';
 import 'package:gap/gap.dart';
+
+import '../../../../../core/helpers/extensions.dart';
+import '../../../../../core/routing/routes.dart';
+import '../../../../../core/theming/styles.dart';
+import '../../../data/models/specialization_response_model.dart';
 
 class DoctorsList extends StatelessWidget {
   final List<Doctors?>? doctors;
@@ -51,13 +50,13 @@ class DoctorsList extends StatelessWidget {
                       Gap(8.h),
                       Text(
                         '${doctors?[index]?.degree ?? 'degree'} | ${doctors?[index]?.phone ?? 'phone number'}',
-                        style: TextStyles.font13GrayNormalReqular,
+                        style: TextStyles.font13GrayNormalRegular,
                       ),
                       Gap(8.h),
                       //email Text
                       Text(
                         doctors?[index]?.email ?? 'email',
-                        style: TextStyles.font13GrayNormalReqular,
+                        style: TextStyles.font13GrayNormalRegular,
                       ),
                     ],
                   ),

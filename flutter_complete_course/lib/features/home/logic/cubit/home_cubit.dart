@@ -1,20 +1,28 @@
 import 'package:bloc/bloc.dart';
-import 'package:flutter_complete_course/core/helpers/extensions.dart';
-import 'package:flutter_complete_course/core/networking/api_error_handler.dart';
-import 'package:flutter_complete_course/core/networking/api_result.dart';
-import 'package:flutter_complete_course/features/home/data/models/specialization_response_model.dart';
-import 'package:flutter_complete_course/features/home/data/repo/home_repo.dart';
-import 'package:flutter_complete_course/features/home/logic/cubit/home_state.dart';
+import 'package:flutter/material.dart';
+
+import '../../../../core/helpers/extensions.dart';
+import '../../../../core/helpers/shared_pref_helper.dart';
+import '../../../../core/networking/api_error_handler.dart';
+import '../../../../core/networking/api_result.dart';
+import '../../data/models/specialization_response_model.dart';
+import '../../data/repo/home_repo.dart';
+import 'home_state.dart';
 
 class HomeCubit extends Cubit<HomeState> {
   final HomeRepo homeRepo;
-  HomeCubit(this.homeRepo) : super(HomeState.initial());
+  
+  HomeCubit(this.homeRepo) : super(HomeState.initial()){
+    getUserName();
+  }
   List<SpecializationsData?>? specializationsList = [];
+  String? userName;
   void getSpecializationsHome() async {
     emit(const HomeState.specializationsLoading());
     final response = await homeRepo.getSpecializationsHome();
     response.when(
       success: (specializationResponseModel) {
+        
         specializationsList =
             specializationResponseModel.specializationDataList ?? [];
 
@@ -47,4 +55,9 @@ class HomeCubit extends Cubit<HomeState> {
         ?.firstWhere((specialization) => specialization?.id == specializationId)
         ?.doctorsList;
   }
+
+  void getUserName() async {
+  userName = await SharedPrefHelper.getString('userName');
+  debugPrint("Retrieved UserName: $userName");
+}
 }

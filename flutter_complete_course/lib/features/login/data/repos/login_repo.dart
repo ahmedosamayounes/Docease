@@ -3,7 +3,7 @@
 import 'package:flutter_complete_course/core/networking/api_error_handler.dart';
 import 'package:flutter_complete_course/core/networking/api_result.dart';
 import 'package:flutter_complete_course/core/networking/api_service.dart';
-import 'package:flutter_complete_course/features/login/data/models/login_requst_body.dart';
+import 'package:flutter_complete_course/features/login/data/models/login_reqeust_body.dart';
 import 'package:flutter_complete_course/features/login/data/models/login_response.dart';
 
 class LoginRepo {
@@ -11,7 +11,7 @@ class LoginRepo {
   LoginRepo( this.apiService);
 
   Future<ApiResult<LoginResponse>> login(
-    LoginRequstBody loginRequestBody,
+    LoginReqeustBody loginRequestBody,
   ) async {
     try {
       final response = await apiService.login(loginRequestBody);

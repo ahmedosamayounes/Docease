@@ -1,13 +1,12 @@
 import 'package:bloc/bloc.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_complete_course/core/helpers/constants.dart';
-import 'package:flutter_complete_course/core/helpers/shared_pref_helper.dart';
-import 'package:flutter_complete_course/core/networking/api_result.dart';
-import 'package:flutter_complete_course/core/networking/dio_factory.dart';
-import 'package:flutter_complete_course/features/login/data/models/login_requst_body.dart';
-import 'package:flutter_complete_course/features/login/data/models/login_response.dart';
-import 'package:flutter_complete_course/features/login/data/repos/login_repo.dart';
-import 'package:flutter_complete_course/features/login/logic/cubit/login_state.dart';
+import '../../../../core/helpers/constants.dart';
+import '../../../../core/helpers/shared_pref_helper.dart';
+import '../../../../core/networking/api_result.dart';
+import '../../../../core/networking/dio_factory.dart';
+import '../../data/models/login_reqeust_body.dart';
+import '../../data/repos/login_repo.dart';
+import 'login_state.dart';
 
 class LoginCubit extends Cubit<LoginState> {
   final LoginRepo loginRepo;
@@ -20,7 +19,7 @@ class LoginCubit extends Cubit<LoginState> {
   void emitLoginStates() async {
     emit(const LoginState.loading());
     final response = await loginRepo.login(
-      LoginRequstBody(
+      LoginReqeustBody(
         email: emailController.text,
         password: passwordController.text,
       ),
@@ -28,7 +27,9 @@ class LoginCubit extends Cubit<LoginState> {
 
     response.when(
       success: (loginResponse) async {
+        debugPrint("Data from API: ${loginResponse.userdata?.username}");
         await saveUserToken(loginResponse.userdata?.token ?? '');
+        await saveUserName(loginResponse.userdata?.username ?? '');
         emit(LoginState.success(loginResponse));
       },
       failure: (error) {
@@ -38,7 +39,11 @@ class LoginCubit extends Cubit<LoginState> {
   }
 
   Future<void> saveUserToken(String token) async {
-    await SharedPrefHelper.setData(SharedPrefKeys.userToken, token);
+    await SharedPrefHelper.setSecuredString(SharedPrefKeys.userToken, token);
     DioFactory.setTokenIntoHeaderAfterLogin(token);
+  }
+
+  Future<void> saveUserName(String userName) async {
+    await SharedPrefHelper.setData('userName', userName);
   }
 }

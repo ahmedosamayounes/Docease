@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_complete_course/core/theming/styles.dart';
+
+import '../../../../../core/theming/styles.dart';
 
 class DoctorsSpecialitySeeAll extends StatelessWidget {
   const DoctorsSpecialitySeeAll({super.key});
@@ -10,7 +11,7 @@ class DoctorsSpecialitySeeAll extends StatelessWidget {
       children: [
         Text('Doctor Speciality', style: TextStyles.font18DarkBlueSemiBold),
         Spacer(),
-        Text('See All', style: TextStyles.font13BlueRegular),
+        Text('View All', style: TextStyles.font13BlueRegular),
       ],
     );
   }

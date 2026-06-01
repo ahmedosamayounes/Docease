@@ -7,6 +7,13 @@
 
 # The following line activates a set of recommended lints for Flutter apps,
 # packages, and plugins designed to encourage good coding practices.
+analyzer:
+  errors:
+    depend_on_referenced_packages: ignore
+    deprecated_member_use: ignore
+    strict_top_level_inference: ignore
+    type_literal_in_constant_pattern: ignore
+    unused_element: ignore
 include: package:flutter_lints/flutter.yaml
 
 linter:

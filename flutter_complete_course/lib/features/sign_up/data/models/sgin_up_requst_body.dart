@@ -1,4 +1,5 @@
 import 'package:freezed_annotation/freezed_annotation.dart';
+
 part 'sgin_up_requst_body.g.dart';
 
 @JsonSerializable()

@@ -1,198 +1,187 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:flutter_complete_course/core/helpers/extensions.dart';
-import 'package:flutter_complete_course/core/routing/routes.dart';
-import 'package:flutter_complete_course/core/theming/app_colors.dart';
-import 'package:flutter_complete_course/core/theming/styles.dart';
-import 'package:flutter_complete_course/features/booking/logic/cubit/appointment_cubit.dart';
-import 'package:flutter_complete_course/features/booking/logic/cubit/appointment_state.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:gap/gap.dart';
+
+import '../../../../core/helpers/extensions.dart';
+import '../../../../core/routing/routes.dart';
+import '../../../../core/theming/app_colors.dart';
+import '../../../../core/theming/styles.dart';
+import '../../logic/cubit/appointment_cubit.dart';
+import '../../logic/cubit/appointment_state.dart';
 
 class AppointmentBlocListener extends StatelessWidget {
   const AppointmentBlocListener({super.key});
 
   @override
   Widget build(BuildContext context) {
-    return BlocBuilder<AppointmentCubit, AppointmentState>(
-      builder: (context, state) {
-        return state.maybeWhen(
-          orElse: () {
-            return const SizedBox.shrink();
+    return BlocListener<AppointmentCubit, AppointmentState>(
+      listener: (context, state) {
+        state.maybeWhen(
+          success: (appointmentData) {
+            showSuccessDialog(context, appointmentData);
           },
-          error: (errorHandler) => const SizedBox.shrink(),
 
-          initial: () => const SizedBox.shrink(),
-          loading: () => Center(
-            child: CircularProgressIndicator(color: AppColors.primaryColor),
-          ),
-          success: (appointmentdata) {
-            return Column(
-              crossAxisAlignment: CrossAxisAlignment.start,
-              children: [
-                /// ✅ Success Message
-                Text(
-                  'Thank You ${appointmentdata.data.patient.name} ',
-                  style: TextStyles.font18DarkBlueBold.copyWith(
-                    color: AppColors.darkBlue,
-                  ),
-                ),
-
-                const Gap(16),
-
-                ///  Doctor Info
-                Container(
-                  padding: EdgeInsets.all(12.w),
-                  decoration: BoxDecoration(
-                    color: Colors.grey.shade100,
-                    borderRadius: BorderRadius.circular(12),
-                  ),
-                  child: Row(
-                    children: [
-                      CircleAvatar(
-                        radius: 26,
-                        // backgroundImage: NetworkImage(
-                        //   appointmentdata.data.doctor.photo,
-                        // ),
-                        backgroundImage: Image.asset(
-                          'assets/svgs/Rectangle 39859.png',
-                        ).image,
-                      ),
-                      const Gap(12),
-                      Expanded(
-                        child: Column(
-                          crossAxisAlignment: CrossAxisAlignment.start,
-                          children: [
-                            Text(
-                              appointmentdata.data.doctor.name,
-                              style: TextStyles.font16DarkBluebold,
-                            ),
-                            const Gap(4),
-                            Text(
-                              appointmentdata.data.doctor.specialization.name,
-                              style: TextStyles.font14GrayRegular,
-                            ),
-                          ],
-                        ),
-                      ),
-                    ],
-                  ),
-                ),
-
-                const Gap(16),
-
-                ///  Appointment Time
-                Container(
-                  padding: EdgeInsets.all(12.w),
-                  decoration: BoxDecoration(
-                    color: Colors.grey.shade100,
-                    borderRadius: BorderRadius.circular(12),
-                  ),
-                  child: Column(
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    children: [
-                      Text(
-                        "Appointment Time",
-                        style: TextStyles.font16DarkBluebold,
-                      ),
-                      const Gap(8),
-                      Text(
-                        appointmentdata.data.appointmentTime,
-                        style: TextStyles.font14GrayRegular,
-                      ),
-                      const Gap(4),
-                      Text(
-                        appointmentdata.data.appointmentEndTime,
-                        style: TextStyles.font14GrayRegular,
-                      ),
-                    ],
-                  ),
-                ),
-
-                const Gap(16),
-
-                ///  Price
-                Container(
-                  padding: EdgeInsets.all(12.w),
-                  decoration: BoxDecoration(
-                    color: Colors.grey.shade100,
-                    borderRadius: BorderRadius.circular(12),
-                  ),
-                  child: Row(
-                    children: [
-                      Icon(Icons.attach_money, color: AppColors.primaryColor),
-                      const Gap(8),
-                      Text(
-                        '${appointmentdata.data.appointmentPrice} EGP',
-                        style: TextStyles.font16DarkBluebold,
-                      ),
-                    ],
-                  ),
-                ),
-
-                const Gap(16),
-
-                ///  Address
-                Container(
-                  padding: EdgeInsets.all(12.w),
-                  decoration: BoxDecoration(
-                    color: Colors.grey.shade100,
-                    borderRadius: BorderRadius.circular(12),
-                  ),
-                  child: Row(
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    children: [
-                      Icon(Icons.location_on, color: AppColors.primaryColor),
-                      const Gap(8),
-                      Column(
-                        crossAxisAlignment: CrossAxisAlignment.start,
-
-                        children: [
-                          Text(
-                            'Location',
-                            style: TextStyles.font16DarkBluebold,
-                            maxLines: 1,
-                          ),
-                          Gap(8),
-                          Text(
-                            ' ${appointmentdata.data.doctor.address}',
-                            style: TextStyles.font14GrayRegular,
-                          ),
-                        ],
-                      ),
-                    ],
-                  ),
-                ),
-
-                const Gap(16),
-
-                ///  Notes
-                appointmentdata.data.notes == ""
-                    ? SizedBox.shrink()
-                    : Container(
-                        padding: EdgeInsets.all(12.w),
-                        decoration: BoxDecoration(
-                          color: Colors.grey.shade100,
-                          borderRadius: BorderRadius.circular(12),
-                        ),
-                        child: Row(
-                          children: [
-                            Icon(Icons.info, color: Colors.green),
-                            const Gap(8),
-                            Text(
-                              'Your Notes Is Saved',
-
-                              style: TextStyles.font14DarkBlueBold,
-                            ),
-                          ],
-                        ),
-                      ),
-                Gap(40),
-              ],
-            );
+          error: (errorMessage) {
+            showErrorDialog(context, errorMessage);
           },
+          orElse: () {},
         );
       },
+
+      child: const SizedBox.shrink(),
+    );
+  }
+
+  void showSuccessDialog(BuildContext context, var appointmentData) {
+    showDialog(
+      context: context,
+      barrierDismissible: false,
+      builder: (BuildContext context) {
+        return Dialog(
+          shape: RoundedRectangleBorder(
+            borderRadius: BorderRadius.circular(20.r),
+          ),
+          child: SingleChildScrollView(
+            child: Padding(
+              padding: EdgeInsets.all(20.w),
+              child: Column(
+                mainAxisSize: MainAxisSize.min,
+                children: [
+                  Icon(
+                    Icons.check_circle_outline_rounded,
+                    color: Colors.green,
+                    size: 80.sp,
+                  ),
+                  const Gap(10),
+                  Text(
+                    'Booking Successful!',
+                    style: TextStyles.font18DarkBlueBold,
+                  ),
+                  const Gap(8),
+                  Text(
+                    'Thank you, ${appointmentData.data.patient.name}',
+                    textAlign: TextAlign.center,
+                    style: TextStyles.font14GrayRegular,
+                  ),
+                  const Divider(height: 30, thickness: 1),
+
+                  // معلومات الدكتور
+                  buildInfoRow(
+                    Icons.person,
+                    "Doctor",
+                    appointmentData.data.doctor.name,
+                  ),
+                  const Gap(12),
+                  buildInfoRow(
+                    Icons.calendar_month,
+                    "Date & Time",
+                    appointmentData.data.appointmentTime,
+                  ),
+                  const Gap(12),
+                  buildInfoRow(
+                    Icons.attach_money,
+                    "Price",
+                    "${appointmentData.data.appointmentPrice} EGP",
+                  ),
+                  const Gap(12),
+                  buildInfoRow(
+                    Icons.location_on,
+                    "Location",
+                    appointmentData.data.doctor.address,
+                  ),
+
+                  const Gap(24),
+
+                  // زرار الإغلاق
+                  SizedBox(
+                    width: double.infinity,
+                    child: ElevatedButton(
+                      style: ElevatedButton.styleFrom(
+                        backgroundColor: AppColors.primaryColor,
+                        shape: RoundedRectangleBorder(
+                          borderRadius: BorderRadius.circular(10.r),
+                        ),
+                        padding: EdgeInsets.symmetric(vertical: 12.h),
+                      ),
+                      onPressed: () {
+                        context.pop();
+                        context.pushNamed(Routes.homeScreen);
+                      },
+                      child: Text(
+                        'Done',
+                        style: TextStyles.font16WhiteSemiBold,
+                      ),
+                    ),
+                  ),
+                ],
+              ),
+            ),
+          ),
+        );
+      },
+    );
+  }
+
+  Widget buildInfoRow(IconData icon, String title, String value) {
+    return Row(
+      crossAxisAlignment: CrossAxisAlignment.start,
+      children: [
+        Icon(icon, size: 20.sp, color: AppColors.primaryColor),
+        const Gap(10),
+        Expanded(
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              Text(title, style: TextStyles.font13GrayNormalRegular),
+              Text(
+                value,
+                style: TextStyles.font14DarkBlueMedium,
+                maxLines: 2,
+                overflow: TextOverflow.ellipsis,
+              ),
+            ],
+          ),
+        ),
+      ],
+    );
+  }
+
+  void showErrorDialog(BuildContext context, String error) {
+    showDialog(
+      context: context,
+      builder: (context) => AlertDialog(
+        shape: RoundedRectangleBorder(
+          borderRadius: BorderRadius.circular(20.r),
+        ),
+        icon: Icon(Icons.error_outline_rounded, color: Colors.red, size: 60.sp),
+        title: Text(
+          'Booking Failed',
+          style: TextStyles.font18DarkBlueBold,
+          textAlign: TextAlign.center,
+        ),
+        content: Text(
+          error.isEmpty ? 'Something went wrong, please try again.' : error,
+          style: TextStyles.font14GrayRegular,
+          textAlign: TextAlign.center,
+        ),
+        actions: [
+          SizedBox(
+            width: double.infinity,
+            child: ElevatedButton(
+              style: ElevatedButton.styleFrom(
+                backgroundColor: AppColors.primaryColor,
+                shape: RoundedRectangleBorder(
+                  
+                  borderRadius: BorderRadius.circular(10.r),
+                ),
+              ),
+              onPressed: () => context.pop(),
+              child: Text('Try Again', style: TextStyles.font16WhiteSemiBold),
+            ),
+          ),
+        ],
+      ),
     );
   }
 }

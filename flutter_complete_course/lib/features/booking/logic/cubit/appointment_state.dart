@@ -1,5 +1,6 @@
-import 'package:flutter_complete_course/features/booking/data/models/appointment_respose_model.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
+
+import '../../data/models/appointment_respose_model.dart';
 
 part 'appointment_state.freezed.dart';
 

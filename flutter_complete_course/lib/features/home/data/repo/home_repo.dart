@@ -1,7 +1,7 @@
-import 'package:flutter_complete_course/core/networking/api_error_handler.dart';
-import 'package:flutter_complete_course/core/networking/api_result.dart';
-import 'package:flutter_complete_course/features/home/data/apis/home_api_service.dart';
-import 'package:flutter_complete_course/features/home/data/models/specialization_response_model.dart';
+import '../../../../core/networking/api_error_handler.dart';
+import '../../../../core/networking/api_result.dart';
+import '../apis/home_api_service.dart';
+import '../models/specialization_response_model.dart';
 
 class HomeRepo {
   final HomeApiService homeApiService;

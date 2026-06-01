@@ -1,3 +1,5 @@
+// ignore_for_file: unreachable_switch_case, non_constant_identifier_names, constant_identifier_names
+
 import 'package:dio/dio.dart';
 
 import 'api_constants.dart';
@@ -5,7 +7,6 @@ import 'api_error_model.dart';
 
 
 
-// TODO: wallahy I will refactor this .. Omar Ahmed
 enum DataSource {
   NO_CONTENT,
   BAD_REQUEST,

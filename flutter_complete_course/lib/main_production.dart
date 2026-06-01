@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
-import 'package:flutter_complete_course/core/di/depnedency_injaction.dart';
-import 'package:flutter_complete_course/core/routing/app_router.dart';
-import 'package:flutter_complete_course/doc_ease_app.dart';
+import 'core/di/depnedency_injaction.dart';
+import 'core/routing/app_router.dart';
+import 'doc_ease_app.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 void main() async{
@@ -15,5 +15,4 @@ void main() async{
   ));
   runApp(DoceaseApp(appRouter: AppRouter(),));
 }
-
 

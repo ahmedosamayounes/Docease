@@ -1,8 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_complete_course/core/theming/app_colors.dart';
-import 'package:flutter_complete_course/core/theming/styles.dart';
+import '../../../../core/theming/styles.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:flutter_svg/flutter_svg.dart';
 
 class OnboardingContent extends StatelessWidget {
   const OnboardingContent({super.key});
@@ -11,7 +9,6 @@ class OnboardingContent extends StatelessWidget {
   Widget build(BuildContext context) {
     return Stack(
       children: [
-        SvgPicture.asset('assets/svgs/logo_low_opacity.svg' , color: AppColors.primaryColor,),
         Container(
           foregroundDecoration: BoxDecoration(
             gradient: LinearGradient(
@@ -28,7 +25,7 @@ class OnboardingContent extends StatelessWidget {
           left: 0,
           right: 0,
           child: Text(
-            'Best Doctor \nAppointment App',
+            'Your Trusted \nHealthcare Partner',
             style: TextStyles.font32PrimaryBold.copyWith(height: 1.4.h),
             textAlign: TextAlign.center,
           ),
