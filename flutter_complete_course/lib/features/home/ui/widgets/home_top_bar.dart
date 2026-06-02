@@ -16,19 +16,25 @@ class HomeTopBar extends StatelessWidget {
       builder: (context, state) {
         return Row(
           children: [
-            Column(
-              crossAxisAlignment: CrossAxisAlignment.start,
-              children: [
-                Text(
-                  'Hello, ${context.watch<HomeCubit>().userName ?? 'User'}!',
-                  style: TextStyles.font18darkBluebold,
-                ),
-                const Gap(5),
-                Text(
-                  'Find your doctor now',
-                  style: TextStyles.font13GrayNormalRegular,
-                ),
-              ],
+            Expanded(
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  Text(
+                    'Hello, ${context.watch<HomeCubit>().userName ?? 'User'}!',
+                    style: TextStyles.font18darkBluebold, 
+                  
+                    maxLines: 1,
+                    overflow: TextOverflow.fade,
+                    
+                  ),
+                  const Gap(5),
+                  Text(
+                    'Find your doctor now',
+                    style: TextStyles.font13GrayNormalRegular,
+                  ),
+                ],
+              ),
             ),
             const Spacer(),
             CircleAvatar(

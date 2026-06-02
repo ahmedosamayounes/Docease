@@ -12,6 +12,7 @@ class TextStyles {
     fontSize: 18.sp,
     fontWeight: FontWeightHelper.bold,
     color: AppColors.darkBlue,
+
   );
   
 
