@@ -4,8 +4,6 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:gap/gap.dart';
 import 'package:shimmer/shimmer.dart';
 
-
-
 class SpecialityShimmerLoading extends StatelessWidget {
   const SpecialityShimmerLoading({super.key});
 
@@ -24,12 +22,12 @@ class SpecialityShimmerLoading extends StatelessWidget {
                 Shimmer.fromColors(
                   baseColor: AppColors.lightGray,
                   highlightColor: Colors.white,
-                  child: const CircleAvatar(
-                    radius: 28,
+                  child: CircleAvatar(
+                    radius: 28.w,
                     backgroundColor: Colors.white,
                   ),
                 ),
-                Gap(14),
+                Gap(14.h),
                 Shimmer.fromColors(
                   baseColor: AppColors.lightGray,
                   highlightColor: Colors.white,
@@ -38,7 +36,7 @@ class SpecialityShimmerLoading extends StatelessWidget {
                     width: 50.w,
                     decoration: BoxDecoration(
                       color: AppColors.lightGray,
-                      borderRadius: BorderRadius.circular(12),
+                      borderRadius: BorderRadius.circular(12.r),
                     ),
                   ),
                 ),

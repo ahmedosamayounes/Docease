@@ -5,14 +5,14 @@ import '../../../../core/helpers/extensions.dart';
 import '../../../../core/helpers/shared_pref_helper.dart';
 import '../../../../core/networking/api_error_handler.dart';
 import '../../../../core/networking/api_result.dart';
-import '../../data/models/specialization_response_model.dart';
+import '../../data/models/specialization_and_doctor_response_model.dart';
 import '../../data/repo/home_repo.dart';
 import 'home_state.dart';
 
 class HomeCubit extends Cubit<HomeState> {
   final HomeRepo homeRepo;
-  
-  HomeCubit(this.homeRepo) : super(HomeState.initial()){
+
+  HomeCubit(this.homeRepo) : super(HomeState.initial()) {
     getUserName();
   }
   List<SpecializationsData?>? specializationsList = [];
@@ -22,7 +22,6 @@ class HomeCubit extends Cubit<HomeState> {
     final response = await homeRepo.getSpecializationsHome();
     response.when(
       success: (specializationResponseModel) {
-        
         specializationsList =
             specializationResponseModel.specializationDataList ?? [];
 
@@ -57,7 +56,7 @@ class HomeCubit extends Cubit<HomeState> {
   }
 
   void getUserName() async {
-  userName = await SharedPrefHelper.getString('userName');
-  debugPrint("Retrieved UserName: $userName");
-}
+    userName = await SharedPrefHelper.getString('userName');
+    debugPrint("Retrieved UserName: $userName");
+  }
 }

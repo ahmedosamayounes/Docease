@@ -1,12 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import '../../../../core/Shared/app_text_formfield.dart';
 import '../../../../core/helpers/app_regex.dart';
 import '../../../login/ui/widgets/paswword_validations.dart';
 import '../../logic/cubit/sign_up_cubit.dart';
 
 import 'package:gap/gap.dart';
-
 
 class SignupForm extends StatefulWidget {
   const SignupForm({super.key});
@@ -39,8 +39,9 @@ class _SignupFormState extends State<SignupForm> {
       setState(() {
         hasLowercase = AppRegex.hasLowerCase(passwordController.text);
         hasUppercase = AppRegex.hasUpperCase(passwordController.text);
-        hasSpecialCharacters =
-            AppRegex.hasSpecialCharacter(passwordController.text);
+        hasSpecialCharacters = AppRegex.hasSpecialCharacter(
+          passwordController.text,
+        );
         hasNumber = AppRegex.hasNumber(passwordController.text);
         hasMinLength = AppRegex.hasMinLength(passwordController.text);
       });
@@ -62,7 +63,7 @@ class _SignupFormState extends State<SignupForm> {
             },
             controller: context.read<SignUpCubit>().nameController,
           ),
-          Gap(18),
+          Gap(18.h),
           AppTextFormField(
             hintText: 'Phone number',
             validator: (value) {
@@ -74,7 +75,7 @@ class _SignupFormState extends State<SignupForm> {
             },
             controller: context.read<SignUpCubit>().phoneController,
           ),
-          Gap(18),
+          Gap(18.h),
           AppTextFormField(
             hintText: 'Email',
             validator: (value) {
@@ -86,7 +87,7 @@ class _SignupFormState extends State<SignupForm> {
             },
             controller: context.read<SignUpCubit>().emailController,
           ),
-          Gap(18),
+          Gap(18.h),
           AppTextFormField(
             controller: context.read<SignUpCubit>().passwordController,
             hintText: 'Password',
@@ -107,10 +108,11 @@ class _SignupFormState extends State<SignupForm> {
               }
             },
           ),
-          Gap(18),
+          Gap(18.h),
           AppTextFormField(
-            controller:
-                context.read<SignUpCubit>().passwordConfirmationController,
+            controller: context
+                .read<SignUpCubit>()
+                .passwordConfirmationController,
             hintText: 'Password Confirmation',
             isObscureText: isPasswordConfirmationObscureText,
             suffixIcon: GestureDetector(
@@ -132,7 +134,7 @@ class _SignupFormState extends State<SignupForm> {
               }
             },
           ),
-          Gap(24),
+          Gap(24.h),
           PasswordValidations(
             hasLowerCase: hasLowercase,
             hasUpperCase: hasUppercase,

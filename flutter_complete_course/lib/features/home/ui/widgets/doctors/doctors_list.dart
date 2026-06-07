@@ -5,7 +5,7 @@ import 'package:gap/gap.dart';
 import '../../../../../core/helpers/extensions.dart';
 import '../../../../../core/routing/routes.dart';
 import '../../../../../core/theming/styles.dart';
-import '../../../data/models/specialization_response_model.dart';
+import '../../../data/models/specialization_and_doctor_response_model.dart';
 
 class DoctorsList extends StatelessWidget {
   final List<Doctors?>? doctors;
@@ -22,7 +22,6 @@ class DoctorsList extends StatelessWidget {
         itemBuilder: (context, index) {
           return GestureDetector(
             onTap: () {
-              // هنا المفروض لما يختار دكتور
               context.pushNamed(
                 Routes.bookingScreen,
                 arguments: doctors?[index],
@@ -31,14 +30,14 @@ class DoctorsList extends StatelessWidget {
             child: Row(
               children: [
                 Padding(
-                  padding:  EdgeInsets.only(bottom: 18.h),
+                  padding: EdgeInsets.only(bottom: 18.h),
                   child: Image.asset(
                     'assets/svgs/Rectangle 39859.png',
                     height: 110.h,
                     width: 110.w,
                   ),
                 ),
-                Gap(10),
+                Gap(10.w),
                 Expanded(
                   child: Column(
                     crossAxisAlignment: CrossAxisAlignment.start,
@@ -53,7 +52,6 @@ class DoctorsList extends StatelessWidget {
                         style: TextStyles.font13GrayNormalRegular,
                       ),
                       Gap(8.h),
-                      //email Text
                       Text(
                         doctors?[index]?.email ?? 'email',
                         style: TextStyles.font13GrayNormalRegular,

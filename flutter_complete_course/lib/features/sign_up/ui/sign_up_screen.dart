@@ -25,16 +25,16 @@ class SignupScreen extends StatelessWidget {
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
                 Text('Join Us Now', style: TextStyles.font24BlueBold),
-                Gap(8),
+                Gap(8.h),
                 Text(
                   'Create your profile now to connect with certified doctors, schedule your visits, and take control of your well-being.',
                   style: TextStyles.font14GrayRegular,
                 ),
-                Gap(36),
+                Gap(36.h),
                 Column(
                   children: [
                     const SignupForm(),
-                    Gap(40),
+                    Gap(40.h),
                     AppTextButton(
                       buttonText: "Sign Up",
                       textStyle: TextStyles.font16WhiteSemiBold,

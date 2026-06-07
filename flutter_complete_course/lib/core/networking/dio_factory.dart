@@ -1,7 +1,7 @@
 import 'package:dio/dio.dart';
-import '../helpers/constants.dart';
 import 'package:pretty_dio_logger/pretty_dio_logger.dart';
 
+import '../helpers/constants.dart';
 import '../helpers/shared_pref_helper.dart';
 
 class DioFactory {
@@ -35,9 +35,7 @@ class DioFactory {
   }
 
   static void setTokenIntoHeaderAfterLogin(String token) {
-    dio?.options.headers = {
-      'Authorization': 'Bearer $token',
-    };
+    dio?.options.headers = {'Authorization': 'Bearer $token'};
   }
 
   static void addDioInterceptor() {

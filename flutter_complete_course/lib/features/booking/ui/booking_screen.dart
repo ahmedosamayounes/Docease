@@ -1,15 +1,16 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:gap/gap.dart';
+
 import '../../../core/Shared/app_text_button.dart';
 import '../../../core/Shared/app_text_formfield.dart';
 import '../../../core/theming/app_colors.dart';
 import '../../../core/theming/styles.dart';
+import '../../home/data/models/specialization_and_doctor_response_model.dart';
 import '../data/models/appointment_request_model.dart';
 import '../logic/cubit/appointment_cubit.dart';
 import 'widgets/booking_bloc_builder.dart';
-import '../../home/data/models/specialization_response_model.dart';
-import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:gap/gap.dart';
 
 class BookingScreen extends StatefulWidget {
   final Doctors? doctorModel;
@@ -32,12 +33,13 @@ class _BookingScreenState extends State<BookingScreen> {
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
-                  const Gap(30),
+                  Gap(30.h),
                   Text(
                     'Booking With Dr ${widget.doctorModel?.name ?? 'Unknown Doctor'}',
                     style: TextStyles.font24BlueBold,
                   ),
-                  Gap(10),
+                  Gap(10.h),
+
                   Text(
                     ' ${widget.doctorModel?.degree ?? 'Unknown degree'}',
                     maxLines: 1,
@@ -46,21 +48,23 @@ class _BookingScreenState extends State<BookingScreen> {
                       fontSize: 15.h,
                     ),
                   ),
-                  Gap(10),
+
+                  Gap(10.h),
+
                   Text(
-                    ' Phone : ${widget.doctorModel?.phone ?? 'Unknown email'}',
+                    ' Phone : ${widget.doctorModel?.phone ?? 'Unknown phone'}',
                     maxLines: 1,
                     style: TextStyle(
                       color: AppColors.grayColor,
                       fontSize: 15.h,
                     ),
                   ),
-                  const Gap(30),
+                  Gap(30.h),
                   Text(
                     'Booking Information',
                     style: TextStyles.font16DarkBluebold,
                   ),
-                  const Gap(16),
+                  Gap(16.h),
 
                   AppTextFormField(
                     controller: context.read<AppointmentCubit>().timeController,
@@ -74,9 +78,8 @@ class _BookingScreenState extends State<BookingScreen> {
                     },
                   ),
 
-                  const Gap(16),
+                  Gap(16.h),
 
-            
                   AppTextFormField(
                     hintText: 'Notes (Optional)',
                     controller: context
@@ -87,7 +90,7 @@ class _BookingScreenState extends State<BookingScreen> {
                     },
                   ),
 
-                  const Gap(32),
+                  Gap(32.h),
 
                   AppTextButton(
                     buttonText: 'Confirm Booking',
@@ -96,7 +99,7 @@ class _BookingScreenState extends State<BookingScreen> {
                       validateAndBook(context);
                     },
                   ),
-                  Gap(30),
+                  Gap(30.h),
                   const AppointmentBlocListener(),
                 ],
               ),
@@ -109,14 +112,10 @@ class _BookingScreenState extends State<BookingScreen> {
 
   void validateAndBook(BuildContext context) {
     if (context.read<AppointmentCubit>().formKey.currentState!.validate()) {
-      // لو كله تمام، ابعت الداتا للـ Cubit
       context.read<AppointmentCubit>().emitAppointmentStates(
         AppointmentRequestModel(
-          doctorId: widget.doctorModel!.id!, // الـ ID اللي جاي من الـ Router
-          startTime: context
-              .read<AppointmentCubit>()
-              .timeController
-              .text, // القيمة اللي في الـ controller
+          doctorId: widget.doctorModel!.id!,
+          startTime: context.read<AppointmentCubit>().timeController.text,
           notes: context.read<AppointmentCubit>().notesController.text,
         ),
       );

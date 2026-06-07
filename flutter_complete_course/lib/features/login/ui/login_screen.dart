@@ -1,5 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:gap/gap.dart';
+
 import '../../../core/Shared/app_text_button.dart';
 import '../../../core/theming/styles.dart';
 import '../logic/cubit/login_cubit.dart';
@@ -7,8 +10,6 @@ import 'widgets/dont_have_account_text.dart';
 import 'widgets/email_and_password_form.dart';
 import 'widgets/login_bloc_listener.dart';
 import 'widgets/terms_and_conditions_text.dart';
-import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:gap/gap.dart';
 
 class LoginScreen extends StatelessWidget {
   const LoginScreen({super.key});

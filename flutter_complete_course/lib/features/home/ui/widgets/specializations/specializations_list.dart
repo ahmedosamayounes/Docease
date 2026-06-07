@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import '../../../../../core/theming/app_colors.dart';
 import '../../../../../core/theming/styles.dart';
-import '../../../data/models/specialization_response_model.dart';
+import '../../../data/models/specialization_and_doctor_response_model.dart';
 import '../../../logic/cubit/home_cubit.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:gap/gap.dart';
@@ -23,7 +23,7 @@ class _SpecializationsListState extends State<SpecializationsList> {
       height: 120.h,
       child: ListView.builder(
         itemCount: widget.specializationsData.length,
-        padding: EdgeInsets.zero, // أهم خطوة: إزالة أي padding
+        padding: EdgeInsets.zero,
 
         scrollDirection: Axis.horizontal,
         shrinkWrap: false,
@@ -38,25 +38,21 @@ class _SpecializationsListState extends State<SpecializationsList> {
               );
             },
             child: Padding(
-              padding:  EdgeInsets.symmetric(horizontal: 20.h),
+              padding: EdgeInsets.symmetric(horizontal: 20.h),
               child: Column(
                 children: [
                   selectedSpecializationIndex == index
                       ? CircleAvatar(
-                        radius: 35.0,
-                        backgroundColor: AppColors.lightWhite,
-                        child: Image.asset(
-                          'assets/svgs/image 247.png',
-                        ),
-                      )
-                      : CircleAvatar(
-                          radius: 30.0,
+                          radius: 35.0.w,
                           backgroundColor: AppColors.lightWhite,
-                          child: Image.asset(
-                              'assets/svgs/image 247.png',
-                            ),
+                          child: Image.asset('assets/svgs/image 247.png'),
+                        )
+                      : CircleAvatar(
+                          radius: 30.0.w,
+                          backgroundColor: AppColors.lightWhite,
+                          child: Image.asset('assets/svgs/image 247.png'),
                         ),
-                  Gap(12),
+                  Gap(12.h),
                   Text(
                     widget.specializationsData[index]?.name ?? 'specialization',
                     style: selectedSpecializationIndex == index

@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import '../../../logic/cubit/home_cubit.dart';
 import '../../../logic/cubit/home_state.dart';
 import '../doctors/doctors_shimmer_loading.dart';
@@ -24,7 +25,7 @@ class SpecializationsBlocBuilder extends StatelessWidget {
             return setupLoading();
           },
           specializationsSuccess: (specializationsData) {
-            var specializationsList =   specializationsData;
+            var specializationsList = specializationsData;
             return SpecializationsList(
               specializationsData: specializationsList ?? [],
             );
@@ -39,17 +40,16 @@ class SpecializationsBlocBuilder extends StatelessWidget {
       },
     );
   }
-    /// shimmer loading for specializations and doctors
+
   Widget setupLoading() {
     return Expanded(
       child: Column(
         children: [
           const SpecialityShimmerLoading(),
-          Gap(8),
+          Gap(8.h),
           const DoctorsShimmerLoading(),
         ],
       ),
     );
   }
-
 }

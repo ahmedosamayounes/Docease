@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import '../../../../core/theming/app_colors.dart';
 import '../../../../core/theming/styles.dart';
 import '../../logic/cubit/home_cubit.dart';
@@ -22,13 +23,12 @@ class HomeTopBar extends StatelessWidget {
                 children: [
                   Text(
                     'Hello, ${context.watch<HomeCubit>().userName ?? 'User'}!',
-                    style: TextStyles.font18darkBluebold, 
-                  
+                    style: TextStyles.font18darkBluebold,
+
                     maxLines: 1,
                     overflow: TextOverflow.fade,
-                    
                   ),
-                  const Gap(5),
+                  Gap(5.h),
                   Text(
                     'Find your doctor now',
                     style: TextStyles.font13GrayNormalRegular,
@@ -38,7 +38,7 @@ class HomeTopBar extends StatelessWidget {
             ),
             const Spacer(),
             CircleAvatar(
-              radius: 24.0,
+              radius: 24.0.w,
               backgroundColor: AppColors.moreLighterGray,
               child: SvgPicture.asset('assets/svgs/Alert.svg'),
             ),

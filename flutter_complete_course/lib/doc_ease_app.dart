@@ -1,9 +1,10 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
+
 import 'core/helpers/constants.dart';
 import 'core/routing/app_router.dart';
 import 'core/routing/routes.dart';
 import 'core/theming/app_colors.dart';
-import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 class DoceaseApp extends StatelessWidget {
   final AppRouter appRouter;
@@ -22,7 +23,9 @@ class DoceaseApp extends StatelessWidget {
           primaryColor: AppColors.primaryColor,
           scaffoldBackgroundColor: Colors.white,
         ),
-        initialRoute: isLoggedInUser ? Routes.homeScreen : Routes.onboardingScreen,
+        initialRoute: isLoggedInUser
+            ? Routes.homeScreen
+            : Routes.onboardingScreen,
         onGenerateRoute: appRouter.generateRoute,
       ),
     );

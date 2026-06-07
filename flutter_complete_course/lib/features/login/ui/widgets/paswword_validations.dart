@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:gap/gap.dart';
 
 import '../../../../../core/theming/styles.dart';
@@ -24,16 +25,16 @@ class PasswordValidations extends StatelessWidget {
     return Column(
       children: [
         buildValidationRow('At least 1 lowercase letter', hasLowerCase),
-        Gap(2),
+        Gap(2.h),
         buildValidationRow('At least 1 uppercase letter', hasUpperCase),
-        Gap(2),
+        Gap(2.h),
         buildValidationRow(
           'At least 1 special character',
           hasSpecialCharacters,
         ),
-        Gap(2),
+        Gap(2.h),
         buildValidationRow('At least 1 number', hasNumber),
-        Gap(2),
+        Gap(2.h),
         buildValidationRow('At least 8 characters long', hasMinLength),
       ],
     );
@@ -42,8 +43,8 @@ class PasswordValidations extends StatelessWidget {
   Widget buildValidationRow(String text, bool hasValidated) {
     return Row(
       children: [
-        const CircleAvatar(radius: 2.5, backgroundColor: AppColors.grayColor),
-        Gap(6),
+        CircleAvatar(radius: 2.5.r, backgroundColor: AppColors.grayColor),
+        Gap(6.h),
         Text(
           text,
           style: TextStyles.font13DarkBlueRegular.copyWith(

@@ -23,6 +23,7 @@ class AppointmentBlocListener extends StatelessWidget {
           },
 
           error: (errorMessage) {
+            debugPrint("Error Message = $errorMessage");
             showErrorDialog(context, errorMessage);
           },
           orElse: () {},
@@ -53,47 +54,45 @@ class AppointmentBlocListener extends StatelessWidget {
                     color: Colors.green,
                     size: 80.sp,
                   ),
-                  const Gap(10),
+                  Gap(10.h),
                   Text(
                     'Booking Successful!',
                     style: TextStyles.font18DarkBlueBold,
                   ),
-                  const Gap(8),
+                  Gap(8.h),
                   Text(
                     'Thank you, ${appointmentData.data.patient.name}',
                     textAlign: TextAlign.center,
                     style: TextStyles.font14GrayRegular,
                   ),
-                  const Divider(height: 30, thickness: 1),
+                  Divider(height: 30.h, thickness: 1),
 
-                  // معلومات الدكتور
                   buildInfoRow(
                     Icons.person,
                     "Doctor",
                     appointmentData.data.doctor.name,
                   ),
-                  const Gap(12),
+                  Gap(12.h),
                   buildInfoRow(
                     Icons.calendar_month,
                     "Date & Time",
                     appointmentData.data.appointmentTime,
                   ),
-                  const Gap(12),
+                  Gap(12.h),
                   buildInfoRow(
                     Icons.attach_money,
                     "Price",
                     "${appointmentData.data.appointmentPrice} EGP",
                   ),
-                  const Gap(12),
+                  Gap(12.h),
                   buildInfoRow(
                     Icons.location_on,
                     "Location",
                     appointmentData.data.doctor.address,
                   ),
 
-                  const Gap(24),
+                  Gap(24.h),
 
-                  // زرار الإغلاق
                   SizedBox(
                     width: double.infinity,
                     child: ElevatedButton(
@@ -172,7 +171,6 @@ class AppointmentBlocListener extends StatelessWidget {
               style: ElevatedButton.styleFrom(
                 backgroundColor: AppColors.primaryColor,
                 shape: RoundedRectangleBorder(
-                  
                   borderRadius: BorderRadius.circular(10.r),
                 ),
               ),

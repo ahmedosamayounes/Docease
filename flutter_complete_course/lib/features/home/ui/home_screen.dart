@@ -1,7 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:gap/gap.dart';
 
-import 'widgets/doctors/doctors_blocbuilder.dart';
+import 'widgets/doctors/doctors_bloc_builder.dart';
 import 'widgets/doctors/doctors_blue_container.dart';
 import 'widgets/doctors/doctors_speciality_see_all.dart';
 import 'widgets/home_top_bar.dart';
@@ -15,18 +16,18 @@ class HomeScreen extends StatelessWidget {
     return Scaffold(
       body: SafeArea(
         child: Padding(
-          padding: const EdgeInsets.symmetric(horizontal: 18),
+          padding: EdgeInsets.symmetric(horizontal: 18.w),
 
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              Gap(30),
-              HomeTopBar(),
-              DoctorsBlueContainer(),
-              Gap(18),
-              DoctorsSpecialitySeeAll(),
-              Gap(15),
-              SpecializationsBlocBuilder(),
+              Gap(30.h),
+              const HomeTopBar(),
+              const DoctorsBlueContainer(),
+              Gap(18.h),
+              const DoctorsSpecialitySeeAll(),
+              Gap(15.h),
+              const SpecializationsBlocBuilder(),
               const DoctorsBlocBuilder(),
             ],
           ),

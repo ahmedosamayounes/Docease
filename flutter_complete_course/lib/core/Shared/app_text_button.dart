@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
-import '../theming/app_colors.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+
+import '../theming/app_colors.dart';
 
 class AppTextButton extends StatelessWidget {
   final double? borderRadius;
@@ -11,7 +12,8 @@ class AppTextButton extends StatelessWidget {
   final double? buttonHeight;
   final String buttonText;
   final TextStyle textStyle;
-  final VoidCallback onPressed; // to handle button press events , function that takes no arguments and returns void
+  final VoidCallback
+  onPressed; // to handle button press events , function that takes no arguments and returns void
   const AppTextButton({
     super.key,
     this.borderRadius,
@@ -28,9 +30,7 @@ class AppTextButton extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return TextButton(
-      
       style: ButtonStyle(
-      
         shape: MaterialStateProperty.all<RoundedRectangleBorder>(
           RoundedRectangleBorder(
             borderRadius: BorderRadius.circular(borderRadius ?? 16.0.r),
@@ -51,7 +51,7 @@ class AppTextButton extends StatelessWidget {
         ),
       ),
       onPressed: onPressed,
-      
+
       child: Text(buttonText, style: textStyle),
     );
   }

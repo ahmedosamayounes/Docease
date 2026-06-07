@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
-import '../../../../../core/theming/app_colors.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:gap/gap.dart';
 import 'package:shimmer/shimmer.dart';
 
+import '../../../../../core/theming/app_colors.dart';
 
 class DoctorsShimmerLoading extends StatelessWidget {
   const DoctorsShimmerLoading({super.key});
@@ -31,7 +31,7 @@ class DoctorsShimmerLoading extends StatelessWidget {
                     ),
                   ),
                 ),
-                Gap(16),
+                Gap(16.h),
                 Expanded(
                   child: Column(
                     crossAxisAlignment: CrossAxisAlignment.start,
@@ -48,7 +48,7 @@ class DoctorsShimmerLoading extends StatelessWidget {
                           ),
                         ),
                       ),
-                      Gap(12),
+                      Gap(12.h),
                       Shimmer.fromColors(
                         baseColor: AppColors.lightGray,
                         highlightColor: Colors.white,
@@ -61,7 +61,7 @@ class DoctorsShimmerLoading extends StatelessWidget {
                           ),
                         ),
                       ),
-                      Gap(12),
+                      Gap(12.h),
                       Shimmer.fromColors(
                         baseColor: AppColors.lightGray,
                         highlightColor: Colors.white,

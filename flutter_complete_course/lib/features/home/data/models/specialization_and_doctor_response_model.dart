@@ -7,9 +7,7 @@ class SpecializationsResponseModel {
   @JsonKey(name: 'data')
   List<SpecializationsData?>? specializationDataList;
 
-  SpecializationsResponseModel({
-    this.specializationDataList,
-  });
+  SpecializationsResponseModel({this.specializationDataList});
 
   factory SpecializationsResponseModel.fromJson(Map<String, dynamic> json) =>
       _$SpecializationsResponseModelFromJson(json);
@@ -22,11 +20,7 @@ class SpecializationsData {
   @JsonKey(name: 'doctors')
   List<Doctors?>? doctorsList;
 
-  SpecializationsData({
-    this.id,
-    this.name,
-    this.doctorsList,
-  });
+  SpecializationsData({this.id, this.name, this.doctorsList});
 
   factory SpecializationsData.fromJson(Map<String, dynamic> json) =>
       _$SpecializationsDataFromJson(json);
